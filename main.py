@@ -1,7 +1,6 @@
 import sys
 from custome_errors import *
 sys.excepthook = my_excepthook
-import lang
 import catagories
 import os
 import settings_handler
@@ -38,9 +37,6 @@ class main (qt.QMainWindow):
         self.cat=qt.QPushButton(_("select category"))
         self.cat.setDefault(True)
         self.cat.clicked.connect(lambda:catagories.main(self).exec())
-        self.langu=qt.QPushButton(_("change questions language by google translater"))
-        self.langu.setDefault(True)
-        self.langu.clicked.connect(lambda:lang.main.main(self).exec())
         self.timer.timeout.connect(self.uptime)
         layout=qt.QVBoxLayout()
         layout.addWidget(self.scor)
@@ -51,7 +47,6 @@ class main (qt.QMainWindow):
         layout.addWidget(self.ansers)
         layout.addWidget(self.sub)
         layout.addWidget(self.cat)
-        layout.addWidget(self.langu)
         w=qt.QWidget()
         w.setLayout(layout)
         self.setCentralWidget(w)
